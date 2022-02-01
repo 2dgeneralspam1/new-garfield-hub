@@ -623,7 +623,7 @@ function SolarisLib:New(Config)
     end 
     MusicConstructor() 
     SettingsConstructor()
-    
+
     local function OpenTabMenu()
         TweenService:Create(MFrame.TabMenu,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Position = UDim2.new(0,0,0,0)}):Play() 
     end   
