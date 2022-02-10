@@ -26,7 +26,94 @@ local function CheckKey(tab, key)
 	end
 end
 
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("ImageLabel")
+local TextLabel = Instance.new("TextLabel")
+ScreenGui.Parent = game:WaitForChild("CoreGui")
 
+Frame.Name = "Frame"
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BackgroundTransparency = 1.000
+Frame.Position = UDim2.new(0.415104181, 0, 0.461263418, 0)
+Frame.Size = UDim2.new(0, 325, 0, 5)
+Frame.Image = "rbxassetid://3570695787"
+Frame.ImageColor3 = Color3.fromRGB(36, 36, 36)
+Frame.ScaleType = Enum.ScaleType.Slice
+Frame.SliceCenter = Rect.new(100, 100, 100, 100)
+Frame.SliceScale = 0.040
+Frame.ImageTransparency = 1
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0, 0, 0.162162155, 0)
+TextLabel.Size = UDim2.new(0, 325, 0, 50)
+TextLabel.Text = "Welcome, "..game.Players.LocalPlayer.Name.."."
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 15
+TextLabel.TextTransparency = 1
+
+blur = Instance.new("BlurEffect", game.Lighting)
+blur.Size = 0
+
+LoadedVers1 = false
+DoneClear = false
+
+spawn(function()
+    local Chars = {
+        {48, 57}, -- 0-9
+        {65, 90}, -- A-Z
+        {97, 122}, -- a-z
+    }
+    function Gen(Length)
+        local String = ""
+        if Length and type(Length) == "number" then
+            for I = 1, Length do
+                local Select = Chars[math.random(1,#Chars)]
+                String = String..string.char(math.random(Select[1], Select[2]))
+            end
+        end
+        return String
+    end
+    repeat wait(.1)
+        ScreenGui.Name = Gen(50)
+        Frame.Name = Gen(50)
+        TextLabel.Name = Gen(50)
+    until DoneClear == true
+end)
+
+for i=1,40 do 
+    wait()
+    blur.Size = 1*i
+    Frame:TweenSize(UDim2.new(0, 325, 0, 74),1,5)
+    Frame.ImageTransparency = 1 - 0.05*i
+    TextLabel.TextTransparency = 1 - 0.04*i
+end
+if Frame.Size == UDim2.new(0, 1, 0, 74) then 
+    repeat wait(.001)
+        Frame:TweenSize(UDim2.new(0, 325, 0, 74),1)
+    until Frame.Size == UDim2.new(0, 1, 0, 74)
+    LoadedVers1 = true
+else 
+    LoadedVers1 = true
+end
+wait(3)
+if LoadedVers1 then
+    for i=1,40 do
+        wait()
+        Frame:TweenSize(UDim2.new(0, 325, 0, 1),2,2)
+        Frame.ImageTransparency = 0 + 0.09*i
+        TextLabel.TextTransparency = 0 + 0.09*i
+        blur.Size = 40 - 1*i
+    end
+end
+pcall(function()
+    if game:GetService("Lighting").Blur then
+        game:GetService("Lighting").Blur:Remove()
+    end
+end)
+print("SharpLogs | Loading")
 
 local NotificationFrame = game:GetObjects("rbxassetid://6924028278")[1]
 NotificationFrame.ZIndex = 4
