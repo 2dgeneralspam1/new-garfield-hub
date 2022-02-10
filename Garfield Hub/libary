@@ -103,7 +103,7 @@ print("Garfield Hub Loading..")
 ScreenGui:Remove()
 
 local ui = Instance.new("ScreenGui")
-ui.Name = "Garfield Hub"
+ui.Name = "Garifled Hub"
 ui.Parent = game.CoreGui
 ui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -200,7 +200,7 @@ function lib:Window(text, preset, closebind)
     Main.Size = UDim2.new(0, 0, 0, 0)
     Main.ClipsDescendants = true
     Main.Visible = true
-    
+
     TabHold.Name = "TabHold"
     TabHold.Parent = Main
     TabHold.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -280,7 +280,7 @@ function lib:Window(text, preset, closebind)
         NotificationHold.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
         NotificationHold.BackgroundTransparency = 1.000
         NotificationHold.BorderSizePixel = 0
-        NotificationHold.Size = UDim2.new(0, 560, 0, 420)
+        NotificationHold.Size = UDim2.new(0, 560, 0, 319)
         NotificationHold.AutoButtonColor = false
         NotificationHold.Font = Enum.Font.SourceSans
         NotificationHold.Text = ""
@@ -622,7 +622,7 @@ function lib:Window(text, preset, closebind)
 
             FrameToggle1.Name = "FrameToggle1"
             FrameToggle1.Parent = Toggle
-            FrameToggle1.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+            FrameToggle1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             FrameToggle1.Position = UDim2.new(0.859504104, 0, 0.285714298, 0)
             FrameToggle1.Size = UDim2.new(0, 37, 0, 18)
 
@@ -827,7 +827,7 @@ function lib:Window(text, preset, closebind)
 
             SlideFrame.Name = "SlideFrame"
             SlideFrame.Parent = Slider
-            SlideFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+            SlideFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             SlideFrame.BorderSizePixel = 0
             SlideFrame.Position = UDim2.new(0.0342647657, 0, 0.686091602, 0)
             SlideFrame.Size = UDim2.new(0, 335, 0, 3)
